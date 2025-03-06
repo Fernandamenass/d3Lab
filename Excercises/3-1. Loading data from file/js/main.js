@@ -1,32 +1,10 @@
-/*
- *    main.js
- */
-
-d3.csv("data/ages.csv")
-  .then((data) => {
-    console.log("CSV Data Loaded:");
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("Error loading CSV:", error);
-  });
-
-d3.tsv("data/ages.tsv")
-  .then((data) => {
-    console.log("TSV Data Loaded:");
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("Error loading TSV:", error);
-  });
-
-d3.json("data/ages.json")
+d3.json("data/ages.json") //carga de datos archivo json
   .then((data) => {
     data.forEach((d) => {
-      d.age = +d.age;
+      d.age = +d.age; //Convierte a entero
     });
 
-    const svg = d3
+    const svg = d3 //Creacion de un svg
       .select("#chart-area")
       .append("svg")
       .attr("width", 1000)
