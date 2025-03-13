@@ -1,7 +1,3 @@
-/*
- *    main.js
- */
-
 var svg = d3
   .select("#chart-area")
   .append("svg")
@@ -17,7 +13,7 @@ svg
   .data(data)
   .enter() //Creacion de espacios entre rectangulos
   .append("rect")
-  .attr("width", 40) // Ancho fijo de 40px
+  .attr("width", 40)
   .attr("height", (d) => d * 10) // Altura escalada
   .attr("x", (d, i) => i * 50) // Espaciado horizontal de 50px
   .attr("y", (d) => 400 - d * 10) // Alinear en la parte inferior

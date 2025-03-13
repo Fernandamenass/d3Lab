@@ -1,7 +1,7 @@
 /*
  *    main.js
  */
-d3.json("data/buildings.json")
+d3.json("data/buildings.json") //carga de datos archivo json
   .then((data) => {
     console.log("Buildings Data Loaded:");
     console.log(data);
