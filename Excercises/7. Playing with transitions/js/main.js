@@ -61,7 +61,7 @@ d3.json("data/revenues.json")
       var newData = flag ? data : data.slice(1);
       update(newData);
       flag = !flag;
-    }, 1000); //This function changes the flag to call update and between revenue and profit
+    }, 1000);
   })
   .catch((error) => console.log(error));
 
@@ -69,7 +69,7 @@ function update(data) {
   var value = flag ? "revenue" : "profit";
 
   // update scales
-  x.domain(originalData.map((d) => d.month)); //Use of the original data to keep the months
+  x.domain(originalData.map((d) => d.month));
   y.domain([0, d3.max(data, (d) => d[value])]);
 
   // update axis
@@ -95,10 +95,7 @@ function update(data) {
   // update label Y
   yLabel.text(`${flag ? "Revenue" : "Profit"} (dlls.)`);
 
-  // merge information
   var bars = g.selectAll("rect").data(data, (d) => d.month); // This is the key function
-
-  // Removes the bars that are not necessary
   bars.exit().remove();
 
   // Update
@@ -110,7 +107,7 @@ function update(data) {
     .attr("width", x.bandwidth())
     .attr("height", (d) => height - y(d[value]));
 
-  // New bars are added with the transition effect
+  // Transition effect
   bars
     .enter()
     .append("rect")

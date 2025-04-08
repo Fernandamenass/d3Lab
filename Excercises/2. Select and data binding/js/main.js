@@ -17,4 +17,4 @@ svg
   .attr("height", (d) => d * 10) // Altura escalada
   .attr("x", (d, i) => i * 50) // Espaciado horizontal de 50px
   .attr("y", (d) => 400 - d * 10) // Alinear en la parte inferior
-  .attr("fill", "#0a9396");
+  .attr("fill", "#FF69B4");

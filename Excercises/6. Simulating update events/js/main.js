@@ -58,7 +58,7 @@ d3.json("data/revenues.json")
     d3.interval(() => {
       flag = !flag;
       update(data);
-    }, 1000); //This function changes the flag to call update and between revenue and profit
+    }, 1000); //Change the flag between revenue and profit
   })
   .catch((error) => console.log(error));
 
@@ -92,10 +92,8 @@ function update(data) {
   // update label Y
   yLabel.text(`${flag ? "Revenue" : "Profit"} (dlls.)`);
 
-  // merge information
   var bars = g.selectAll("rect").data(data);
 
-  // Remove the bars that are not necessary
   bars.exit().remove();
 
   // Update
@@ -107,7 +105,7 @@ function update(data) {
     .attr("width", x.bandwidth())
     .attr("height", (d) => height - y(d[value]));
 
-  // New bars are added with the transition effect
+  // Transition effect
   bars
     .enter()
     .append("rect")
